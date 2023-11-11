@@ -1,0 +1,22 @@
+.header {
+	height: 5rem;
+	display: flex;
+	padding: 1rem 1.25rem;
+	justify-content: space-between;
+	font-size: 1.25rem;
+}
+.logo {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+.links {
+	display: flex;
+	gap: 2rem;
+}
+.user {
+	text-decoration: none;
+}
+
+.logout_in {
+	text-decoration: none;
+}

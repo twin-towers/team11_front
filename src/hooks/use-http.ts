@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 
+import type { ProjectListResponse } from '../../types/projects';
 import type { RegisterUserResponse, UserRegisterRequest } from '../types/user';
 
 type RequestConfig = {
@@ -13,7 +14,7 @@ const useHttp = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	const sendRequest = useCallback(async (requestConfig: RequestConfig, applyData: (data: RegisterUserResponse) => void) => {
+	const sendRequest = useCallback(async (requestConfig: RequestConfig, applyData: (data: ProjectListResponse | RegisterUserResponse) => void) => {
 		setIsLoading(true);
 		setError(null);
 		console.log(requestConfig);

@@ -1,0 +1,15 @@
+.projects {
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+.projects ul {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	list-style-type: none;
+}
+
+.projects li {
+	font-size: 2rem;
+	text-decoration: none;
+}

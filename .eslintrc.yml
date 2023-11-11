@@ -1,0 +1,43 @@
+# eslint-env node
+root: true
+env:
+  browser: true
+  es2023: true
+
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react-hooks/recommended
+  - plugin:perfectionist/recommended-natural
+
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  project: tsconfig.json
+
+settings:
+  react:
+    version: detect
+
+plugins:
+  - react-refresh
+  - perfectionist
+
+ignorePatterns: dist
+
+rules:
+  react-refresh/only-export-components:
+    - warn
+    - allowConstantExport: true
+  indent: off
+  '@typescript-eslint/consistent-type-exports':
+    - error
+    - fixMixedExportsWithInlineTypeSpecifier: true
+  '@typescript-eslint/consistent-type-imports': error
+
+overrides:
+  - files:
+      - '*test*'
+    rules:
+      '@typescript-eslint/unbound-method': off

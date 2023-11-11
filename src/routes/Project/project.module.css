@@ -1,0 +1,6 @@
+.workspace {
+	display: grid;
+	grid-template-columns: 300px 800px 300px;
+	justify-content: space-between;
+	height: 100%;
+}

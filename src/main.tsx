@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
-// import './index.css';
+import './index.css';
 import { router } from './routes/router.tsx';
 
 const root = document.getElementById('root')

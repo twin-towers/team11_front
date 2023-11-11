@@ -24,7 +24,8 @@ plugins:
   - react-refresh
   - perfectionist
 
-ignorePatterns: dist
+ignorePatterns:
+  - dist
 
 rules:
   react-refresh/only-export-components:

@@ -9,6 +9,7 @@
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"lint:styles": "stylelint \"**/*.css\"",
 		"fix:styles": "stylelint \"**/*.css\" --fix",
+		"fix:js": "eslint . --ext ts,tsx --fix",
 		"preview": "vite preview",
 		"format": "prettier . --write"
 	},
@@ -27,6 +28,7 @@
 		"@vitejs/plugin-react": "^4.0.3",
 		"browserslist": "^4.22.1",
 		"eslint": "^8.45.0",
+		"eslint-plugin-perfectionist": "^2.2.0",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"lightningcss": "^1.22.1",

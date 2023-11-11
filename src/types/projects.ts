@@ -15,21 +15,14 @@ type GeneralShape = {
 	zIndex: number;
 };
 
-type IconGeneral = GeneralShape & {
+type ImageIcon = GeneralShape & {
 	id: string;
 	size: number;
 };
 
-type IconProps =
-	| {
-			color: string;
-			type: 'border' | 'simple';
-	}
-	| {
-			type: 'image';
-	};
-
-type Icon = IconGeneral & IconProps;
+type SimpleIcon = ImageIcon & {
+	color: string;
+};
 
 type Image = GeneralShape & {
 	fit: 'contain' | 'cover';
@@ -49,9 +42,7 @@ type Text = GeneralShape & {
 	weight: number;
 };
 
-
-
-type Entity = Icon | Image | Text;
+type Entity = Image | SimpleIcon | Text;
 
 type Project = {
 	canvas: Canvas;
@@ -59,15 +50,13 @@ type Project = {
 	name: string;
 };
 
-
 type ProjectItemResponse = {
 	id: number;
 	name: string;
 	updateAt: string; // timestamp
-}
+};
 
 // sorted by updateAt
-type ProjectListResponse = ProjectItemResponse[]
-
+type ProjectListResponse = ProjectItemResponse[];
 
 export type { Entity, Project, ProjectListResponse };

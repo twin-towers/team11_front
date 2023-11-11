@@ -8,6 +8,9 @@ dependencies:
   '@dnd-kit/core':
     specifier: ^6.1.0
     version: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+  '@fontsource-variable/playpen-sans':
+    specifier: ^5.0.1
+    version: 5.0.1
   '@nanostores/react':
     specifier: ^0.7.1
     version: 0.7.1(nanostores@0.9.5)(react@18.2.0)
@@ -604,6 +607,10 @@ packages:
     resolution: {integrity: sha512-Kn7K8dx/5U6+cT1yEhpX1w4PCSg0M+XyRILPgvwcEBjerFWCwQj5sbr3/VmxqV0JGHCBCzyd6LxypEuehypY1w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/playpen-sans@5.0.1:
+    resolution: {integrity: sha512-/CVvW6scsSzJkbBLaO99xnnas0IBuVnTJxnuQLfm9dTZp1ki035A+taAsK29ynQGl6Ec2H8EWuu4McuASINIng==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}

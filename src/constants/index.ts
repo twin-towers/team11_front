@@ -1,5 +1,5 @@
 const enum AppRoute {
-	// Home = '/',
+	Home = '/',
 	Login = '/login',
 	NotFound = '/404',
 	Project = '/projects/:id',

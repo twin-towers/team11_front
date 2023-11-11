@@ -10,7 +10,6 @@ export const router = createBrowserRouter([
 	{
 		element: <Navigate to={AppRoute.ProjectsNew} />,
 		index: true,
-
 	},
 	{
 		element: <ProjectPage />,
@@ -31,5 +30,5 @@ export const router = createBrowserRouter([
 	{
 		element: <SignUpPage />,
 		path: AppRoute.SignUp,
-	}
+	},
 ]);

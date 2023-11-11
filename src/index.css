@@ -12,11 +12,17 @@
 	text-size-adjust: 100%;
 }
 
-
 @media (prefers-color-scheme: light) {
-
 }
 
 @media (prefers-reduced-motion: no-preference) {
+}
 
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: #3f3f3f;
 }

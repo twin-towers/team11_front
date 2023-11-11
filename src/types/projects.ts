@@ -40,11 +40,16 @@ type Image = GeneralShape & {
 
 type Text = GeneralShape & {
 	color: string;
+	decoration: 'line-through' | 'none' | 'overline' | 'underline' | 'wavy';
 	href?: string;
+	isItalic: false;
 	name: string;
 	size: number;
 	text: string;
+	weight: number;
 };
+
+
 
 type Entity = Icon | Image | Text;
 

@@ -1,8 +1,8 @@
 const enum MemoryDifficulty {
-	Easy, // 4x4
-	Medium, // 4 x 5
-	Hard, // 4 x 6
-	VeryHard , // 5 x 6
+	Easy, // 4x4 = 16
+	Medium, // 4 x 5 = 20
+	Hard, // 4 x 6 = 24
+	VeryHard , // 5 x 6 = 30
 }
 
 // moves * 10 + time / 1000
@@ -32,4 +32,5 @@ type MemoryRequest = {
 
 
 // response Array of MemoryRecord
-export type { MemoryDifficulty, MemoryRecord, MemoryRequest };
+export type {  MemoryRecord, MemoryRequest };
+export {MemoryDifficulty}

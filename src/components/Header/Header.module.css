@@ -5,10 +5,12 @@
 	justify-content: space-between;
 	font-size: 1.25rem;
 }
+
 .logo {
 	width: 2.5rem;
 	height: 2.5rem;
 }
+
 .links {
 	display: flex;
 	gap: 2rem;
@@ -17,6 +19,7 @@
 		padding: 0.4em;
 	}
 }
+
 .user {
 	text-decoration: none;
 }

@@ -19,7 +19,7 @@ type RegisterUserResponse = {
 
 const signUp = action($user, 'signUp', async (store, body: SignUpData) => {
 	const filteredBody = clearEmpty(body);
-
+	console.log($user);
 	try {
 		const response = await api<RegisterUserResponse>({
 			body: filteredBody,

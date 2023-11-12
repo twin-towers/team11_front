@@ -10,7 +10,7 @@ import style from './style.module.css';
 type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonProps = (DefaultButtonProps | LinkProps) & {
-	variant?: 'primary';
+	variant?: 'primary' | 'text';
 };
 
 export const Button = ({ children, className, variant = 'primary', ...props }: ButtonProps) => {

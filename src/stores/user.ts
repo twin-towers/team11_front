@@ -1,4 +1,4 @@
-import { action, atom, onAction } from 'nanostores';
+import { action, atom, } from 'nanostores';
 
 import type { SignUpData } from '../routes/SignUpPage/schema';
 import type { Token } from '../service/token';

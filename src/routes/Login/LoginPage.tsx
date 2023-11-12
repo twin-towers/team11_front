@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import styles from './LoginPage.module.css';
 import { login } from '../../stores/user';
+import styles from './LoginPage.module.css';
 
 export const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState('');

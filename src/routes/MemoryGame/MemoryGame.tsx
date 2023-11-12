@@ -8,12 +8,11 @@ import style from './style.module.css';
 
 export function MemoryGame() {
 	const isFinished = useStore($isFinished);
-	console.log(isFinished);
+
 	return (
 		<main className={style.host}>
 			{isFinished ? (
 				<Congrats />
-
 			) : (
 				<>
 					<MemoryToolbar />

@@ -21,7 +21,6 @@ export const LoginPage: React.FC = () => {
 		resolver,
 	});
 
-
 	return (
 		<>
 			<h1 className={styles.title}>Nice to see you again 🖐️</h1>

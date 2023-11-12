@@ -15,7 +15,6 @@ const $boardData = computed([$board, $founded, $erroredIds, $selected], (board, 
 
 const $isFinished = computed([$founded, $board], (founded, board) => founded.length === board.length / 2);
 
-
 const $timeEnd = computed([$isFinished, $start], (isFinished) => isFinished && stopTimer());
 
 export { $boardData, $isFinished, $timeEnd };

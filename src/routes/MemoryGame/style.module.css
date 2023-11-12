@@ -1,15 +1,12 @@
 .host {
 	padding-block: 2rem;
-
-	background: radial-gradient( farthest-corner circle at 50% 115%, #ff4700 0%, #0ff 100% );
-	background: radial-gradient( farthest-corner circle at 50% 115% in oklch, oklch(80% .3 34) 0%, oklch(90% .3 200) 100% );
+	background: radial-gradient(farthest-corner circle at 50% 115%, #ff4700 0%, #0ff 100%);
+	background: radial-gradient(farthest-corner circle at 50% 115% in oklch, oklch(80% 0.3 34deg) 0%, oklch(90% 0.3 200deg) 100%);
 }
-
 
 @media (prefers-color-scheme: dark) {
 	.host {
-		background: radial-gradient( farthest-corner circle at 100% 0%, #00dfff 0%, #ca0030 100% );
-		background: radial-gradient( farthest-corner circle at 100% 0% in oklab, oklch(80% .4 222) 0%, oklch(35% 0.50 360) 100% );
+		background: radial-gradient(farthest-corner circle at 100% 0%, #00dfff 0%, #ca0030 100%);
+		background: radial-gradient(farthest-corner circle at 100% 0% in oklab, oklch(80% 0.4 222deg) 0%, oklch(35% 0.5 360deg) 100%);
 	}
-
 }

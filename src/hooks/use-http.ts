@@ -3,7 +3,8 @@ import { useCallback, useState } from 'react';
 import type { RegisterUserResponse, UserRegisterRequest } from '../types/user';
 
 type RequestConfig = {
-	body?: UserRegisterRequest;
+	body?: UserRegisterRequest | string;
+	data?: string;
 	headers?: { [header: string]: string };
 	method?: string;
 	url: string;
@@ -29,6 +30,7 @@ const useHttp = () => {
 			}
 
 			const data = await response.json();
+			console.log(data);
 			applyData(data);
 		} catch (err) {
 			if (err instanceof Error) {

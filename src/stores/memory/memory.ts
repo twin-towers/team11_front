@@ -1,4 +1,4 @@
-import { action, atom, computed } from 'nanostores';
+import { action, atom } from 'nanostores';
 
 import { createGameInitial } from '../../utils';
 import { $erroredIds, clearError } from './error';
@@ -16,8 +16,6 @@ const $moves = atom<number>(0);
 const addFound = action($founded, 'addFound', (state, option: Option) => {
 	$founded.set([...state.get(), option]);
 });
-
-
 
 const select = action($selected, 'select', (state, option: Index) => {
 	startTimer();
@@ -52,7 +50,4 @@ const resetGame = () => $board.set(createGameInitial());
 
 $selected.subscribe((selected) => shouldCheckSelected(selected) && checkSelected(selected));
 
-
-
-export {
-$board, $founded, $moves, $selected, resetGame, select };
+export { $board, $founded, $moves, $selected, resetGame, select };

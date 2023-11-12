@@ -48,10 +48,10 @@ function Dice({ id, index, isErrored, isFounded, isSelected }: DiceProps) {
 				disabled={!shouldHaveClick}
 				onClick={clickHandler}
 			>
-				
+
 			</button> */}
 
-			<img alt="icon" src={`../../../public/assets/GameIcons/icon${id}.svg`} />
+			<img alt="icon" src={`/assets/GameIcons/icon${id}.svg`} />
 		</button>
 	);
 }

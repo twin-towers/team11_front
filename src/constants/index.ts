@@ -1,4 +1,5 @@
 const enum AppRoute {
+	EditProfile = '/edit',
 	Home = '/',
 	Login = '/login',
 	NotFound = '/404',

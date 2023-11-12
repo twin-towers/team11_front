@@ -11,7 +11,7 @@ export function MemoryGame() {
 
 	return (
 		<main className={style.host}>
-			{true ? (
+			{isFinished ? (
 				<Congrats />
 			) : (
 				<>

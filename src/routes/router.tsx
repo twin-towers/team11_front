@@ -6,6 +6,7 @@ import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
 import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
+import { PrivateRoute } from './PrivateRoute';
 import { ProjectPage } from './Project/ProjectPage';
 import { ProjectsPage } from './Projects/ProjectsList';
 import { PublicRoute } from './Public/PublicRoute';
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
 			},
 
 			{
+				children: [{ element: <EditPage />, path: AppRoute.EditProfile }],
+				element: <PrivateRoute />,
+			},
+
+			{
 				children: [
 					{
 						element: <LoginPage />,
@@ -48,7 +54,6 @@ export const router = createBrowserRouter([
 						element: <SignUpPage />,
 						path: AppRoute.SignUp,
 					},
-					{ element: <EditPage />, path: AppRoute.EditProfile },
 				],
 				element: <PublicRoute />,
 			},

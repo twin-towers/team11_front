@@ -1,31 +1,15 @@
-.list {
-	display: grid;
-	grid-template-columns: repeat(4, 3rem);
-	grid-auto-rows: 3rem;
-	place-items: center;
-	place-content: center;
-	gap: 10px;
+.host {
+	padding-block: 2rem;
+
+	background: radial-gradient( farthest-corner circle at 50% 115%, #ff4700 0%, #0ff 100% );
+	background: radial-gradient( farthest-corner circle at 50% 115% in oklch, oklch(80% .3 34) 0%, oklch(90% .3 200) 100% );
 }
 
-.item {
-	font-size: 1.5rem;
-	display: grid;
-	place-items: center;
-	width: 100%;
-	height: 100%;
-}
 
-.error {
-	background-color: var(--invalid);
-	color: white;
-}
+@media (prefers-color-scheme: dark) {
+	.host {
+		background: radial-gradient( farthest-corner circle at 100% 0%, #00dfff 0%, #ca0030 100% );
+		background: radial-gradient( farthest-corner circle at 100% 0% in oklab, oklch(80% .4 222) 0%, oklch(35% 0.50 360) 100% );
+	}
 
-.found {
-	background-color: var(--valid);
-	color: white;
-}
-
-.select {
-	background-color: var(--primaryColor);
-	color: white;
 }

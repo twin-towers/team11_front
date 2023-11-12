@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import clsx from 'clsx';
 
-import { $boardData, select } from '../../stores/memory';
+import { $boardData, select } from '../../stores/memory/memory';
 import style from './style.module.css';
 
 export function GameBoard() {

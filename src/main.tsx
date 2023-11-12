@@ -2,6 +2,7 @@ import '@fontsource-variable/nunito';
 import '@fontsource-variable/playpen-sans';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from 'react-router-dom';
 
 import { router } from './routes/router.tsx';
@@ -16,5 +17,6 @@ if (!root) {
 createRoot(root).render(
 	<StrictMode>
 		<RouterProvider router={router} />
+		<Toaster />
 	</StrictMode>,
 );

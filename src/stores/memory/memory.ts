@@ -1,7 +1,8 @@
 import { action, atom, computed } from 'nanostores';
 
-import { createGameInitial } from '../utils';
-import { startTimer } from './memory-timer';
+import { createGameInitial } from '../../utils';
+import { $erroredIds, clearError } from './error';
+import { startTimer } from './timer';
 
 type Option = number;
 type Index = number;
@@ -9,14 +10,14 @@ type Index = number;
 const $board = atom<Option[]>(createGameInitial());
 const $founded = atom<Option[]>([]);
 const $selected = atom<Index[]>([]);
-const $errored = atom<Index[]>([]);
+
 const $moves = atom<number>(0);
-console.log($board.get());
+
 const addFound = action($founded, 'addFound', (state, option: Option) => {
 	$founded.set([...state.get(), option]);
 });
 
-const clearError = action($errored, 'clearError', (state) => state.get().length && state.set([]));
+
 
 const select = action($selected, 'select', (state, option: Index) => {
 	startTimer();
@@ -32,7 +33,7 @@ const checkSelected = ([first, second]: [Index, Index]) => {
 	const board = $board.get();
 
 	const isSame = board[first] === board[second];
-	isSame ? addFound(board[first]) : $errored.set([first, second]);
+	isSame ? addFound(board[first]) : $erroredIds.set([first, second]);
 
 	$moves.set($moves.get() + 1);
 	clearSelected();
@@ -51,7 +52,7 @@ const resetGame = () => $board.set(createGameInitial());
 
 $selected.subscribe((selected) => shouldCheckSelected(selected) && checkSelected(selected));
 
-const $boardData = computed([$board, $founded, $errored, $selected], (board, founded, errored, selected) =>
+const $boardData = computed([$board, $founded, $erroredIds, $selected], (board, founded, errored, selected) =>
 	board.map((id, index) => ({
 		id,
 		isErrored: errored.includes(index),

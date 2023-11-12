@@ -19,7 +19,7 @@ const stopTimer = action($start, 'stopTimer', (state) => {
 		return time;
 	}
 
-	return null;
+	return NaN;
 });
 
 export { $start, startTimer, stopTimer };

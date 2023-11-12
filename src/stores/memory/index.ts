@@ -1,7 +1,8 @@
-import { computed } from "nanostores";
+import { computed } from 'nanostores';
 
-import { $erroredIds } from "./error";
-import { $board, $founded, $selected } from "./memory";
+import { $erroredIds } from './error';
+import { $board, $founded, $selected } from './memory';
+import { $start, stopTimer } from './timer';
 
 const $boardData = computed([$board, $founded, $erroredIds, $selected], (board, founded, errored, selected) =>
 	board.map((id, index) => ({
@@ -14,4 +15,7 @@ const $boardData = computed([$board, $founded, $erroredIds, $selected], (board, 
 
 const $isFinished = computed([$founded, $board], (founded, board) => founded.length === board.length / 2);
 
-export { $boardData, $isFinished };
+
+const $timeEnd = computed([$isFinished, $start], (isFinished) => isFinished && stopTimer());
+
+export { $boardData, $isFinished, $timeEnd };

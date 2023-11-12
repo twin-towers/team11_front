@@ -8,5 +8,4 @@ const enum AppRoute {
 	SignUp = '/sign-up',
 }
 
-
-export {AppRoute}
+export { AppRoute };

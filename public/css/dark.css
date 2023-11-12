@@ -1,4 +1,35 @@
 :root {
-	--main-background: hsl(210deg 20% 8%);
-	--main-text: hsl(210deg 50% 96%);
+	--canvasColor: hsl(0deg 0% 7%);
+	--backgroundColor: #2a313b;
+	--foregroundColor: #ebe8d8;
+	--primaryColor: #367bc3;
+	--primaryShade5: #b5cfe9;
+	--primaryShade4: #91b7de;
+	--primaryShade3: #5a93cd;
+	--primaryShade2: #3270b2;
+	--primaryShade1: #285a8e;
+	--secondaryColor: #38bfa7;
+	--secondaryShade5: #c8ede7;
+	--secondaryShade4: #92dccf;
+	--secondaryShade3: #6ed0be;
+	--secondaryShade2: #33ae98;
+	--secondaryShade1: #2e9d89;
+	--accentColor: #586994;
+	--accentShade5: #d1d6e1;
+	--accentShade4: #a3adc4;
+	--accentShade3: #7684a7;
+	--accentShade2: #49567a;
+	--accentShade1: #39435f;
+	--accent2Color: #8fe1a2;
+	--accent2Shade5: #d6f4dd;
+	--accent2Shade4: #c1eecc;
+	--accent2Shade3: #a3e6b2;
+	--accent2Shade2: #82cd94;
+	--accent2Shade1: #76b985;
+	--accent3Color: #fe938c;
+	--accent3Shade5: #fee1df;
+	--accent3Shade4: #fec4c0;
+	--accent3Shade3: #fea6a0;
+	--accent3Shade2: #e78680;
+	--accent3Shade1: #b96b66;
 }

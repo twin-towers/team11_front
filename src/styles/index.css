@@ -1,0 +1,15 @@
+@import url('./vars.css');
+@import url('./reset.css');
+
+.paper {
+	border-radius: 0.625rem;
+	box-shadow: 0 3px 15px hsl(223.81deg 0% 20% / 20%);
+}
+
+a {
+	color: var(--primaryColor);
+	text-decoration: none;
+}
+/* 
+@media (prefers-reduced-motion: no-preference) {
+} */

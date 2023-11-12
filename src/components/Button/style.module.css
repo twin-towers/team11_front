@@ -1,0 +1,26 @@
+.primary {
+	outline: none;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	border: none;
+	padding: 1.25em;
+	cursor: pointer;
+	border-radius: var(--borderRadius);
+	background: var(--primaryColor);
+	color: var(--backgroundColor);
+	position: relative;
+	transition: 0.2s ease;
+	text-decoration: none;
+	font-variation-settings: 'wght' 900;
+
+	@media (prefers-color-scheme: dark) {
+		color: var(--foregroundColor);
+	}
+
+	&:is(:hover, :focus-visible) {
+		translate: 0 -0.2em;
+		background: var(--primaryShade2);
+		box-shadow: 0 5px 15px rgb(51 51 51 / 20%);
+	}
+}

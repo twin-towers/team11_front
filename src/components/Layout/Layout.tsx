@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
-import style from "./style.module.css";
+import style from './style.module.css';
 
 export function Layout() {
 	return (

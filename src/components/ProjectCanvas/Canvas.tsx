@@ -9,7 +9,7 @@ export function Canvas() {
 		id: 'canvas',
 	});
 
-	const active = useStore($canvasItems)
+	const active = useStore($canvasItems);
 	return (
 		<div className={style.body} ref={setNodeRef}>
 			{active.map((item) => (

@@ -1,4 +1,4 @@
-import { atom, computed } from "nanostores";
+import { atom, computed } from 'nanostores';
 
 const enum AuthStatus {
 	Authorized,
@@ -9,4 +9,4 @@ const enum AuthStatus {
 const $auth = atom<AuthStatus>(AuthStatus.Unknown);
 const $isAuth = computed($auth, (auth) => auth === AuthStatus.Authorized);
 
-export { $auth, $isAuth, AuthStatus}
+export { $auth, $isAuth, AuthStatus };

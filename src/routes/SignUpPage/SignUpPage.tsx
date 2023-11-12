@@ -1,81 +1,95 @@
-import React, { useState } from 'react';
+import { clsx } from 'clsx';
+import { useForm } from 'react-hook-form';
 
+import type { SignUpData } from './schema';
+
+import { Button } from '../../components/Button/Button';
+import { Link } from '../../components/Link/Link';
+import { AppRoute } from '../../constants';
 import useHttp from '../../hooks/use-http';
+import { Field } from './../../components/Field/Field';
 import styles from './SignUpPage.module.css';
-
-// interface RegistrationFormProps {
-// 	onSubmit: (email: string, password: string, firstName: string, lastName: string, username: string) => void;
-// }
+import { resolver } from './schema';
 
 export const SignUpPage: React.FC = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [username, setUserName] = useState('');
+	const {
+		formState: { errors },
+		handleSubmit,
+		register,
+	} = useForm<SignUpData>({
+		resolver,
+	});
 
 	const { sendRequest: postUser } = useHttp();
 
-	const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setEmail(e.target.value);
-	};
-
-	const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setFirstName(e.target.value);
-	};
-	const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setLastName(e.target.value);
-	};
-	const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setPassword(e.target.value);
-	};
-	const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setUserName(e.target.value);
-	};
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		// onSubmit(email, password, firstName, lastName, username);
-		postUser(
-			{
-				body: { email, firstName, lastName, password, username },
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				method: 'POST',
-				url: 'https://hackaton-canvas-default-rtdb.firebaseio.com/',
-			},
-			(data) => {
-				console.log(data);
-			},
-		);
-	};
+	// const handleSubmit = (e: React.FormEvent) => {
+	// 	e.preventDefault();
+	// 	// onSubmit(email, password, firstName, lastName, username);
+	// 	postUser(
+	// 		{
+	// 			body: { email, firstName, lastName, password, username },
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 			},
+	// 			method: 'POST',
+	// 			url: 'https://hackaton-canvas-default-rtdb.firebaseio.com/',
+	// 		},
+	// 		(data) => {
+	// 			console.log(data);
+	// 		},
+	// 	);
+	// };
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<div className={styles.control}>
-				<label>Email:</label>
-				<input onChange={handleEmailChange} required type="email" value={email} />
-			</div>
-			<div className={styles.control}>
-				<label>First Name:</label>
-				<input onChange={handleFirstNameChange} type="text" value={firstName} />
-			</div>
-			<div className={styles.control}>
-				<label>Last Name:</label>
-				<input onChange={handleLastNameChange} type="text" value={lastName} />
-			</div>
-			<div className={styles.control}>
-				<label>Password:</label>
-				<input onChange={handlePasswordChange} required type="password" value={password} />
-			</div>
-			<div className={styles.control}>
-				<label>Username:</label>
-				<input onChange={handleUserNameChange} type="text" value={username} />
-			</div>
-			<div className={styles.action}>
-				<button type="submit">Sing up</button>
-			</div>
-		</form>
+		<>
+			<h1 className={styles.title}>Let's get acquainted 🖐️</h1>
+			<form className={clsx(styles.form, 'paper')} onSubmit={handleSubmit(console.log)}>
+				<Field
+					autoComplete="given-name"
+					error={errors.firstName?.message}
+					invalid={Boolean(errors.firstName)}
+					label="First Name"
+					type="text"
+					{...register('firstName')}
+				/>
+
+				<Field
+					autoComplete="family-name"
+					error={errors.lastName?.message}
+					invalid={Boolean(errors.lastName)}
+					label="Last Name"
+					type="text"
+					{...register('lastName')}
+				/>
+
+				<Field
+					autoComplete="nickname"
+					error={errors.username?.message}
+					invalid={Boolean(errors.username)}
+					label="Username"
+					type="text"
+					{...register('username')}
+				/>
+
+				<Field autoComplete="email" error={errors.email?.message} invalid={Boolean(errors.email)} label="Email" type="email" {...register('email')} />
+
+				<Field
+					autoComplete="new-password"
+					error={errors.password?.message}
+					invalid={Boolean(errors.password)}
+					label="Password"
+					type="password"
+					{...register('password')}
+				/>
+
+				<Button className={styles.action} type="submit">
+					Sing up
+				</Button>
+
+				<Link className={styles.back} href={AppRoute.Login}>
+					I have account
+				</Link>
+			</form>
+		</>
 	);
 };

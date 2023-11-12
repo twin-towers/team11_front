@@ -22,7 +22,7 @@ type MemoryRecord = {
 type MemoryRequest = {
 	difficulty: MemoryDifficulty;
 	moves: number; // amount of moves
-	time: number; // amount of milliseconds
+	time?: number; // amount of milliseconds
 };
 
 // фронт сохранить результат

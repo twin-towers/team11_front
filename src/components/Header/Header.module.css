@@ -15,7 +15,8 @@
 	display: flex;
 	gap: 2rem;
 
-	& a, & button {
+	& a,
+	& button {
 		padding: 0.4em;
 	}
 }

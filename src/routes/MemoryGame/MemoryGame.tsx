@@ -1,22 +1,16 @@
+import { useStore } from '@nanostores/react';
+
+import { $isFinished } from '../../stores/memory';
 import { GameBoard } from './../../components/GameBoard/GameBoard';
-import { useStore } from "@nanostores/react";
-
-import { $isFinished } from "../../stores/memory";
-
 
 export function MemoryGame() {
-
-	const isFinished = useStore($isFinished)
+	const isFinished = useStore($isFinished);
 
 	return (
 		<main>
+			<GameBoard />
 
-			<GameBoard  />
-
-			{isFinished && <p>
-				You win 🏆
-				</p>}
-
+			{isFinished && <p>You win 🏆</p>}
 		</main>
-	)
+	);
 }

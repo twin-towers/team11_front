@@ -4,7 +4,6 @@ const enum RandomResult {
 	More,
 }
 
-
 const getRandomInteger = (min: number = 0, max: number = 100) => {
 	min = Math.ceil(min);
 	max = Math.floor(max);

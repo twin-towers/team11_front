@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
 import { LoginPage } from './Login/LoginPage';
-import { MemoryGame } from "./MemoryGame/MemoryGame.1";
+import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
 import { ProjectPage } from './Project/ProjectPage';
 import { ProjectsPage } from './Projects/ProjectsList';

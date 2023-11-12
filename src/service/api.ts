@@ -3,7 +3,7 @@ import { getToken } from './token';
 type Method = 'DELETE' | 'GET' | 'PATCH' | 'POST' | 'PUT';
 
 type FetchProps<Body> = Omit<RequestInit, 'body' | 'headers' | 'method' | 'url'> & {
-	body?: Body
+	body?: Body;
 	headers?: Record<string, string>;
 	method?: Method;
 	url: `/${string}`;
@@ -36,7 +36,7 @@ export async function api<Response, Body = object>({ body, headers: extraHeaders
 			throw Error('Error during parsing');
 		}
 
-		return await response.json() as Response;
+		return (await response.json()) as Response;
 	} catch (err) {
 		console.error(err);
 		throw Error('Something went wrong');

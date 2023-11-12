@@ -17,21 +17,21 @@ const Header = () => {
 			<div className={styles.links}>
 				{isLoggedIn ? (
 					<>
-						<Button className={styles.user} href="/projects" variant='text'>
+						<Button className={styles.user} href="/projects" variant="text">
 							UserName
 						</Button>
 
-						<Button className={styles.logout_in} onClick={logout}  variant='text'>
+						<Button className={styles.logout_in} onClick={logout} variant="text">
 							Logout
 						</Button>
 					</>
 				) : (
 					<>
-						<Button className={styles.logout_in} href={AppRoute.SignUp} variant='text'>
+						<Button className={styles.logout_in} href={AppRoute.SignUp} variant="text">
 							Sing Up
 						</Button>
 
-						<Button className={styles.logout_in}  href={AppRoute.Login} variant='text'>
+						<Button className={styles.logout_in} href={AppRoute.Login} variant="text">
 							Login
 						</Button>
 					</>

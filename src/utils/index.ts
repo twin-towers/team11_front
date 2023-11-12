@@ -1,5 +1,5 @@
-import { MemoryDifficulty } from "../types/memory";
-import { randomSort } from "./random";
+import { MemoryDifficulty } from '../types/memory';
+import { randomSort } from './random';
 
 const createNumberArray = (length = 100, start = 0) => Array.from({ length }, (_, i) => start + i);
 
@@ -14,6 +14,6 @@ const createGameInitial = (difficulty = MemoryDifficulty.Easy) => {
 		default:
 			return createGameArray(allDiceOption.slice(0, 8 + difficulty * 2));
 	}
-}
+};
 
 export { createGameInitial, createNumberArray };

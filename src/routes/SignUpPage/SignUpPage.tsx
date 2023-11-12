@@ -16,7 +16,7 @@ export const SignUpPage: React.FC = () => {
 		formState: { errors },
 		getValues,
 		handleSubmit,
-		register
+		register,
 	} = useForm<SignUpData>({
 		resolver,
 	});
@@ -24,9 +24,12 @@ export const SignUpPage: React.FC = () => {
 	return (
 		<>
 			<h1 className={styles.title}>Let's get acquainted 🖐️</h1>
-			<form className={clsx(styles.form, 'paper')} onSubmit={handleSubmit(() => {
-					signUp(getValues())
-			})}>
+			<form
+				className={clsx(styles.form, 'paper')}
+				onSubmit={handleSubmit(() => {
+					signUp(getValues());
+				})}
+			>
 				<Field
 					autoComplete="given-name"
 					error={errors.firstName?.message}

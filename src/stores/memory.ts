@@ -11,7 +11,7 @@ const $founded = atom<Option[]>([]);
 const $selected = atom<Index[]>([]);
 const $errored = atom<Index[]>([]);
 const $moves = atom<number>(0);
-console.log($board.get())
+console.log($board.get());
 const addFound = action($founded, 'addFound', (state, option: Option) => {
 	$founded.set([...state.get(), option]);
 });
@@ -60,6 +60,6 @@ const $boardData = computed([$board, $founded, $errored, $selected], (board, fou
 	})),
 );
 
-const $isFinished = computed([$founded, $board], (founded, board) => founded.length === (board.length / 2))
+const $isFinished = computed([$founded, $board], (founded, board) => founded.length === board.length / 2);
 
 export { $boardData, $isFinished, resetGame, select };

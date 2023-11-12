@@ -1,4 +1,4 @@
-import { action, atom } from "nanostores";
+import { action, atom } from 'nanostores';
 
 const $start = atom<Date | null>(null);
 
@@ -20,6 +20,6 @@ const stopTimer = action($start, 'stopTimer', (state) => {
 	}
 
 	return null;
-})
+});
 
 export { $start, startTimer, stopTimer };

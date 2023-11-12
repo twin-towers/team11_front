@@ -7,7 +7,6 @@ export const LoginPage: React.FC = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-
 	const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setEmail(e.target.value);
 	};
@@ -20,8 +19,6 @@ export const LoginPage: React.FC = () => {
 		e.preventDefault();
 
 		login({ email, password });
-
-
 	};
 
 	return (

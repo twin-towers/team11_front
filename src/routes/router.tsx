@@ -2,14 +2,13 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
+import { PrivateRoute, PublicRoute } from './Acces/AccessRoute';
 import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
 import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
-import { PrivateRoute } from './PrivateRoute';
 import { ProjectPage } from './Project/ProjectPage';
 import { ProjectsPage } from './Projects/ProjectsList';
-import { PublicRoute } from './Public/PublicRoute';
 import { SignUpPage } from './SignUpPage/SignUpPage';
 
 export const router = createBrowserRouter([

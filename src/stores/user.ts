@@ -1,5 +1,6 @@
 import { action, atom } from 'nanostores';
 
+import type { EditData } from '../routes/EditProfile/schema';
 import type { SignUpData } from '../routes/SignUpPage/schema';
 import type { Token } from '../service/token';
 import type { User } from '../types/user';
@@ -54,10 +55,30 @@ const login = action($user, 'login', async (store, body: Pick<SignUpData, 'email
 	}
 });
 
+const edit = action($user, 'edit', async (store, body: EditData) => {
+	const filteredBody = clearEmpty(body);
+
+	try {
+		const response = await api<RegisterUserResponse>({
+			body: filteredBody,
+			method: 'PUT',
+			url: '/users',
+		});
+
+		saveToken(response.token);
+		setAuth();
+		store.set(response.user);
+		return response;
+	} catch (err) {
+		console.error(err);
+		return Error('Something went wrong');
+	}
+});
+
 const logout = action($user, 'logout', () => {
 	dropToken();
 	setUnAuth();
 	$user.set(null);
 });
 
-export { login, logout, signUp };
+export { edit, login, logout, signUp };

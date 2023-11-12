@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
+import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
 import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
 			{
 				element: <ProjectsPage />,
 			},
+
 			{
 				children: [
 					{
@@ -46,6 +48,7 @@ export const router = createBrowserRouter([
 						element: <SignUpPage />,
 						path: AppRoute.SignUp,
 					},
+					{ element: <EditPage />, path: AppRoute.EditProfile },
 				],
 				element: <PublicRoute />,
 			},

@@ -1,33 +1,31 @@
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 
-import type { SignUpData } from './schema';
+import type { EditData } from './schema';
 
 import { Button } from '../../components/Button/Button';
-import { Link } from '../../components/Link/Link';
-import { AppRoute } from '../../constants';
-import { signUp } from '../../stores/user';
+import { edit } from '../../stores/user';
 import { Field } from './../../components/Field/Field';
-import styles from './SignUpPage.module.css';
+import styles from './EditProfile.module.css';
 import { resolver } from './schema';
 
-export const SignUpPage: React.FC = () => {
+export const EditPage: React.FC = () => {
 	const {
 		formState: { errors },
 		getValues,
 		handleSubmit,
 		register,
-	} = useForm<SignUpData>({
+	} = useForm<EditData>({
 		resolver,
 	});
 
 	return (
 		<>
-			<h1 className={styles.title}>Let's get acquainted 🖐️</h1>
+			<h1 className={styles.title}>What do you want to change? 🤔</h1>
 			<form
 				className={clsx(styles.form, 'paper')}
 				onSubmit={handleSubmit(() => {
-					signUp(getValues());
+					edit(getValues());
 				})}
 			>
 				<Field
@@ -69,12 +67,8 @@ export const SignUpPage: React.FC = () => {
 				/>
 
 				<Button className={styles.action} type="submit">
-					Sing up
+					Edit entered
 				</Button>
-
-				<Link className={styles.back} href={AppRoute.Login}>
-					I have an account
-				</Link>
 			</form>
 		</>
 	);

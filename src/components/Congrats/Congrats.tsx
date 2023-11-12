@@ -1,7 +1,9 @@
 import { useStore } from '@nanostores/react';
 
 import { $timeEnd } from '../../stores/memory';
-import { $moves } from '../../stores/memory/memory';
+import { $moves, resetGame } from '../../stores/memory/memory';
+import { Button } from '../Button/Button';
+import style from './Congrats.module.css';
 
 export function Congrats() {
 	const moves = useStore($moves);
@@ -9,9 +11,14 @@ export function Congrats() {
 	const normalizedSeconds = seconds ? Math.round(seconds / 1000) : 0;
 
 	return (
-		<div>
-			<h1>Congratulation!</h1>
-			You finished with {moves} moves and {normalizedSeconds} seconds
+		<div className={style.congrats}>
+			<h1>Congratulations!</h1>
+			<p>
+				You finished with {moves} moves and {normalizedSeconds} seconds.
+			</p>
+			<Button className={style.button} onClick={resetGame}>
+				Play again
+			</Button>
 		</div>
 	);
 }

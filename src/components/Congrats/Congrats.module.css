@@ -1,0 +1,17 @@
+.congrats {
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.congrats h1 {
+	font-size: 5rem;
+}
+
+.congrats p {
+	font-size: 2rem;
+}
+
+.button {
+	font-size: 1.5rem;
+	width: 15rem;
+}

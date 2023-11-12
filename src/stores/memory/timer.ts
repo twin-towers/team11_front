@@ -22,4 +22,4 @@ const clearStart = action($start, 'stopTimer', (state) => {
 	return NaN;
 });
 
-export { $start, startTimer, clearStart };
+export { $start, clearStart, startTimer };

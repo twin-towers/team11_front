@@ -52,15 +52,7 @@ const resetGame = () => $board.set(createGameInitial());
 
 $selected.subscribe((selected) => shouldCheckSelected(selected) && checkSelected(selected));
 
-const $boardData = computed([$board, $founded, $erroredIds, $selected], (board, founded, errored, selected) =>
-	board.map((id, index) => ({
-		id,
-		isErrored: errored.includes(index),
-		isFounded: founded.includes(id),
-		isSelected: selected.includes(index),
-	})),
-);
 
-const $isFinished = computed([$founded, $board], (founded, board) => founded.length === board.length / 2);
 
-export { $boardData, $isFinished, resetGame, select };
+export {
+$board, $founded, $moves, $selected, resetGame, select };

@@ -1,10 +1,14 @@
+import { useStore } from '@nanostores/react';
 import { Link } from 'react-router-dom';
 
+import { AppRoute } from '../../constants';
+import { $isAuth } from '../../stores/auth';
+import { logout } from '../../stores/user';
 import styles from './Header.module.css';
+import { Button } from '../Button/Button';
 
 const Header = () => {
-	const isLoggedIn = true;
-
+	const isLoggedIn = useStore($isAuth);
 	return (
 		<nav className={styles.header}>
 			<Link className={styles.logo} to="/">
@@ -15,13 +19,13 @@ const Header = () => {
 					UserName
 				</Link>
 				{isLoggedIn ? (
-					<Link className={styles.logout_in} to="">
+					<Button className={styles.logout_in}  onClick={logout}>
 						Logout
-					</Link>
+					</Button>
 				) : (
-					<Link className={styles.logout_in} to="/login">
+					<Button className={styles.logout_in} href={AppRoute.Login} >
 						Login
-					</Link>
+					</Button>
 				)}
 			</div>
 		</nav>

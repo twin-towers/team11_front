@@ -12,6 +12,10 @@
 .links {
 	display: flex;
 	gap: 2rem;
+
+	& a, & button {
+		padding: 0.4em;
+	}
 }
 .user {
 	text-decoration: none;

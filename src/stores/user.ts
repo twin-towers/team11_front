@@ -1,30 +1,63 @@
-import { action, atom } from "nanostores";
+import { action, atom, onAction } from 'nanostores';
 
-import type { SignUpData } from "../routes/SignUpPage/schema";
-import type { RegisterUserResponse, User } from "../types/user";
+import type { SignUpData } from '../routes/SignUpPage/schema';
+import type { Token } from '../service/token';
+import type { User } from '../types/user';
 
-import { api } from "../service/api";
-import { saveToken } from "../service/token";
+import { api } from '../service/api';
+import { dropToken, saveToken } from '../service/token';
+import { clearEmpty } from '../utils/clearEmpty';
+import { setAuth } from './auth';
 
 export const $user = atom<User | null>(null);
 
-export const signUp = action($user, 'signUp', async (store, body: SignUpData) => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const filteredBody = Object.fromEntries(Object.entries(body).filter(([_, value]) => value !== ''))
+type RegisterUserResponse = {
+	token: Token;
+	user: User;
+};
+
+const signUp = action($user, 'signUp', async (store, body: SignUpData) => {
+	const filteredBody = clearEmpty(body);
 
 	try {
 		const response = await api<RegisterUserResponse>({
 			body: filteredBody,
 			method: 'POST',
-			url: '/users'
-		})
+			url: '/users',
+		});
 
-		saveToken(response.token)
-		store.set(response.user)
-		return response
-	} catch(err) {
-		console.error(err)
-		return Error('Something went wrong')
+		saveToken(response.token);
+		setAuth();
+		store.set(response.user);
+		return response;
+	} catch (err) {
+		console.error(err);
+		return Error('Something went wrong');
 	}
+});
 
-})
+const login = action($user, 'login', async (store, body: Pick<SignUpData, 'email' | 'password'>) => {
+	try {
+		const response = await api<RegisterUserResponse>({
+			body,
+			method: 'POST',
+			url: '/auth',
+		});
+
+		saveToken(response.token);
+		setAuth();
+		store.set(response.user);
+		return response;
+	} catch (err) {
+		console.error(err);
+		return Error('Something went wrong');
+	}
+});
+
+const logout = action($user, 'logout', () => {
+	dropToken();
+	setAuth();
+	$user.set(null);
+});
+
+export { login, logout, signUp };

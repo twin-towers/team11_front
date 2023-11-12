@@ -8,22 +8,20 @@ import { addCanvasItem } from '../../stores/active';
 import style from './project.module.css';
 
 export function ProjectPage() {
-
 	function handleDragEnd(evt: DragEndEvent) {
-
 		if (evt.over?.id !== 'canvas') {
-			return
+			return;
 		}
 
-		const parent = evt.over.rect
-		const next = evt.active.rect.current.translated
+		const parent = evt.over.rect;
+		const next = evt.active.rect.current.translated;
 
 		if (!next) return;
 
 		addCanvasItem(evt.active.id as string, {
-			x: next.left - parent.left ,
+			x: next.left - parent.left,
 			y: next.top - parent.top,
-		})
+		});
 	}
 
 	return (

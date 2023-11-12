@@ -1,4 +1,5 @@
 import { action, atom } from 'nanostores';
+import toast from 'react-hot-toast';
 
 import type { EditData } from '../routes/EditProfile/schema';
 import type { SignUpData } from '../routes/SignUpPage/schema';
@@ -20,65 +21,69 @@ type RegisterUserResponse = {
 const signUp = action($user, 'signUp', async (store, body: SignUpData) => {
 	const filteredBody = clearEmpty(body);
 
-	try {
-		const response = await api<RegisterUserResponse>({
+	const { token, user } = await toast.promise(
+		api<RegisterUserResponse>({
 			body: filteredBody,
 			method: 'POST',
 			url: '/users',
-		});
+		}),
+		{
+			error: 'Something went wrong',
+			loading: 'Loading',
+			success: ({ user: { username } }) => `Hello, ${username}!`,
+		},
+	);
 
-		saveToken(response.token);
-		setAuth();
-		store.set(response.user);
-		return response;
-	} catch (err) {
-		console.error(err);
-		return Error('Something went wrong');
-	}
+	saveToken(token);
+	setAuth();
+	store.set(user);
 });
 
 const login = action($user, 'login', async (store, body: Pick<SignUpData, 'email' | 'password'>) => {
-	try {
-		const response = await api<RegisterUserResponse>({
+	const { token, user } = await toast.promise(
+		api<RegisterUserResponse>({
 			body,
 			method: 'POST',
 			url: '/auth',
-		});
+		}),
+		{
+			error: 'Something went wrong',
+			loading: 'Loading',
+			success: 'Hello again!',
+		},
+	);
 
-		saveToken(response.token);
-		setAuth();
-		store.set(response.user);
-		return response;
-	} catch (err) {
-		console.error(err);
-		return Error('Something went wrong');
-	}
+	saveToken(token);
+	setAuth();
+	store.set(user);
 });
 
 const edit = action($user, 'edit', async (store, body: EditData) => {
 	const filteredBody = clearEmpty(body);
 
-	try {
-		const response = await api<RegisterUserResponse>({
+	const { token, user } = await toast.promise(
+		api<RegisterUserResponse>({
 			body: filteredBody,
 			method: 'PUT',
 			url: '/users',
-		});
+		}),
+		{
+			error: 'Something went wrong',
+			loading: 'Loading',
+			success: 'Profile updated',
+		},
+	);
 
-		saveToken(response.token);
-		setAuth();
-		store.set(response.user);
-		return response;
-	} catch (err) {
-		console.error(err);
-		return Error('Something went wrong');
-	}
+	saveToken(token);
+	setAuth();
+	store.set(user);
 });
 
 const logout = action($user, 'logout', () => {
 	dropToken();
 	setUnAuth();
 	$user.set(null);
+	toast.success('Goodbye!');
 });
 
 export { edit, login, logout, signUp };

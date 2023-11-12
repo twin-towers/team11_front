@@ -2,7 +2,7 @@ import { action, atom } from 'nanostores';
 
 import { createGameInitial } from '../../utils';
 import { $erroredIds, clearError } from './error';
-import { startTimer } from './timer';
+import { clearStart, startTimer } from './timer';
 
 type Option = number;
 type Index = number;
@@ -44,6 +44,7 @@ $board.subscribe(() => {
 	$founded.set([]);
 	$selected.set([]);
 	$moves.set(0);
+	clearStart();
 });
 
 const resetGame = () => $board.set(createGameInitial());

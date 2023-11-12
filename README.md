@@ -6,7 +6,6 @@
 - [Artur Litovko](https://t.me/Arthur)
 - [Evgeniy Nikolaev](https://t.me/NikolaevEvgenij)
 
-
 Проект Memory Game.
 
 - Frontend написан на `React + Redux + TypeScript`.
@@ -15,7 +14,8 @@
 
 ## Запуск проекта
 
-Рекомендую использовать `pnpm` как покетный менеджер, но это не принципиально. Node 18+ 
+Рекомендую использовать `pnpm` как покетный менеджер, но это не принципиально. Node 18+
 
 ## Смотри так же
+
 [Backend](https://github.com/twin-towers/team11_back)

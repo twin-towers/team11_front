@@ -10,7 +10,7 @@ const startTimer = action($start, 'startTimer', (state) => {
 	return state.get();
 });
 
-const stopTimer = action($start, 'stopTimer', (state) => {
+const clearStart = action($start, 'stopTimer', (state) => {
 	const start = state.get();
 
 	if (start !== null) {
@@ -22,4 +22,4 @@ const stopTimer = action($start, 'stopTimer', (state) => {
 	return NaN;
 });
 
-export { $start, startTimer, stopTimer };
+export { $start, startTimer, clearStart };

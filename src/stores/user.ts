@@ -21,6 +21,7 @@ type RegisterUserResponse = {
 const signUp = action($user, 'signUp', async (store, body: SignUpData) => {
 	const filteredBody = clearEmpty(body);
 
+
 	const { token, user } = await toast.promise(
 		api<RegisterUserResponse>({
 			body: filteredBody,

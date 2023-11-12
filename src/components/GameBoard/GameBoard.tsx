@@ -8,11 +8,13 @@ import style from './style.module.css';
 export function GameBoard() {
 	const board = useStore($boardData);
 	return (
-		<menu className={style.list}>
-			{board.map((row, index) => (
-				<Dice index={index} key={`${row.id}-${index}`} {...row} />
-			))}
-		</menu>
+		<div className={style.container}>
+			<menu className={style.list}>
+				{board.map((row, index) => (
+					<Dice index={index} key={`${row.id}-${index}`} {...row} />
+				))}
+			</menu>
+		</div>
 	);
 }
 
@@ -24,8 +26,18 @@ function Dice({ id, index, isErrored, isFounded, isSelected }: DiceProps) {
 	const shouldHaveClick = !isSelected && !isFounded;
 	const clickHandler = shouldHaveClick ? () => select(index) : undefined;
 	return (
-		<li className={style.item}>
-			<button
+		<button
+			aria-invalid={isErrored}
+			aria-pressed={isSelected}
+			className={clsx(style.item, {
+				[style.error]: isErrored,
+				[style.found]: isFounded,
+				[style.select]: isSelected,
+			})}
+			disabled={!shouldHaveClick}
+			onClick={clickHandler}
+		>
+			{/* <button
 				aria-invalid={isErrored}
 				aria-pressed={isSelected}
 				className={clsx(style.dice, {
@@ -36,8 +48,10 @@ function Dice({ id, index, isErrored, isFounded, isSelected }: DiceProps) {
 				disabled={!shouldHaveClick}
 				onClick={clickHandler}
 			>
-				{id}
-			</button>
-		</li>
+				
+			</button> */}
+
+			<img alt="icon" src={`../../../public/assets/GameIcons/icon${id}.svg`} />
+		</button>
 	);
 }

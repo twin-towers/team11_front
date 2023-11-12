@@ -7,7 +7,7 @@ import { GameBoard } from './../../components/GameBoard/GameBoard';
 import style from './style.module.css';
 
 export function MemoryGame() {
-	const isFinished = useStore($isFinished);
+	const isFinished = useStore($isFinished) || true;
 
 	return (
 		<main className={style.host}>

@@ -7,7 +7,7 @@ import type { User } from '../types/user';
 import { api } from '../service/api';
 import { dropToken, saveToken } from '../service/token';
 import { clearEmpty } from '../utils/clearEmpty';
-import { setAuth } from './auth';
+import { setAuth, setUnAuth } from './auth';
 
 export const $user = atom<User | null>(null);
 
@@ -56,7 +56,7 @@ const login = action($user, 'login', async (store, body: Pick<SignUpData, 'email
 
 const logout = action($user, 'logout', () => {
 	dropToken();
-	setAuth();
+	setUnAuth();
 	$user.set(null);
 });
 

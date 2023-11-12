@@ -7,11 +7,9 @@ export function optionalField<TWrapped extends BaseSchema, TDefault extends Inpu
 ): Omit<OptionalSchema<TWrapped, TDefault>, 'getDefault' | 'type'> {
 	return {
 		_parse(input, info) {
-			if (input === '') {
-				console.log('optionalField', input, info);
-				return getOutput(undefined);
-			}
-			return wrapped._parse(input, info);
+			console.log(input);
+			console.log(info);
+			return input === '' ? getOutput(wrapped._parse(input, info)) : wrapped._parse(input, info)
 		},
 		async: false,
 		wrapped,

@@ -6,7 +6,7 @@ import type { SignUpData } from './schema';
 import { Button } from '../../components/Button/Button';
 import { Link } from '../../components/Link/Link';
 import { AppRoute } from '../../constants';
-import useHttp from '../../hooks/use-http';
+import { signUp } from '../../stores/user';
 import { Field } from './../../components/Field/Field';
 import styles from './SignUpPage.module.css';
 import { resolver } from './schema';
@@ -14,36 +14,19 @@ import { resolver } from './schema';
 export const SignUpPage: React.FC = () => {
 	const {
 		formState: { errors },
+		getValues,
 		handleSubmit,
-		register,
+		register
 	} = useForm<SignUpData>({
 		resolver,
 	});
 
-	const { sendRequest: postUser } = useHttp();
-
-	// const handleSubmit = (e: React.FormEvent) => {
-	// 	e.preventDefault();
-	// 	// onSubmit(email, password, firstName, lastName, username);
-	// 	postUser(
-	// 		{
-	// 			body: { email, firstName, lastName, password, username },
-	// 			headers: {
-	// 				'Content-Type': 'application/json',
-	// 			},
-	// 			method: 'POST',
-	// 			url: 'https://hackaton-canvas-default-rtdb.firebaseio.com/',
-	// 		},
-	// 		(data) => {
-	// 			console.log(data);
-	// 		},
-	// 	);
-	// };
-
 	return (
 		<>
 			<h1 className={styles.title}>Let's get acquainted 🖐️</h1>
-			<form className={clsx(styles.form, 'paper')} onSubmit={handleSubmit(console.log)}>
+			<form className={clsx(styles.form, 'paper')} onSubmit={handleSubmit(() => {
+					signUp(getValues())
+			})}>
 				<Field
 					autoComplete="given-name"
 					error={errors.firstName?.message}

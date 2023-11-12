@@ -7,20 +7,36 @@ import style from './style.module.css';
 export function GameBoard() {
 	const board = useStore($boardData);
 	return (
-		<ul className={style.list}>
-			{board.map((row, rowIndex) => (
-				<li
-					className={clsx(style.item, {
-						[style.error]: row.isErrored,
-						[style.found]: row.isFounded,
-						[style.select]: row.isSelected,
-					})}
-					key={`${row.id}-${rowIndex}`}
-					onClick={() => select(rowIndex)}
-				>
-					{row.id}
-				</li>
+		<menu className={style.list}>
+			{board.map((row, index) => (
+				<Dice index={index} key={`${row.id}-${index}`} {...row} />
 			))}
-		</ul>
+		</menu>
+	);
+}
+
+type BoardItem = ReturnType<typeof $boardData.get>[number];
+type DiceProps = BoardItem & {
+	index: number;
+};
+function Dice({ id, index, isErrored, isFounded, isSelected }: DiceProps) {
+	const shouldHaveClick = !isSelected && !isFounded;
+	const clickHandler = shouldHaveClick ? () => select(index) : undefined;
+	return (
+		<li className={style.item}>
+			<button
+				aria-invalid={isErrored}
+				aria-pressed={isSelected}
+				className={clsx(style.dice, {
+					[style.error]: isErrored,
+					[style.found]: isFounded,
+					[style.select]: isSelected,
+				})}
+				disabled={!shouldHaveClick}
+				onClick={clickHandler}
+			>
+				{id}
+			</button>
+		</li>
 	);
 }

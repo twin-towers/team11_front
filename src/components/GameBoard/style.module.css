@@ -5,6 +5,7 @@
 	place-items: center;
 	place-content: center;
 	gap: 10px;
+	list-style: none;
 }
 
 .item {

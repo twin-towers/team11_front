@@ -1,0 +1,24 @@
+.congrats {
+	display: grid;
+	grid-template-columns: minmax(1fr, 600px);
+	padding-inline: max(2rem, 5vw);
+	height: 100%;
+	align-items: center;
+	align-content: center;
+}
+
+.congrats h1 {
+	font-size: 5rem;
+	margin-block: 0 0.2em;
+}
+
+.congrats p {
+	font-size: 2rem;
+}
+
+.button {
+	font-size: 1.5rem;
+	width: 15rem;
+}
+
+

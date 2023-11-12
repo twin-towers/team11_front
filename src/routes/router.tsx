@@ -2,6 +2,7 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
+import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
 import { PageNotFound } from './NotFound/NotFound';
 import { ProjectPage } from './Project/ProjectPage';
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
 			{
 				element: <ProjectsPage />,
 			},
+
 			{
 				children: [
 					{
@@ -45,6 +47,7 @@ export const router = createBrowserRouter([
 						element: <SignUpPage />,
 						path: AppRoute.SignUp,
 					},
+					{ element: <EditPage />, path: AppRoute.EditProfile },
 				],
 				element: <PublicRoute />,
 			},

@@ -28,7 +28,7 @@ export const Button = ({ children, className, variant = 'primary', ...props }: B
 
 	return (
 		<button className={className} type={type} {...rest}>
-			Click me
+			{children}
 		</button>
 	);
 };

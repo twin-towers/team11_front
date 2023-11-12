@@ -18,13 +18,13 @@ const setUnAuth = action($auth, 'setUnAuth', () => $auth.set(AuthStatus.Unauthor
 
 onStart($auth, async () => {
 	try {
-		const user = await api<User>({url: '/auth'})
-		setAuth()
-		$user.set(user)
+		const user = await api<User>({ url: '/auth' });
+		setAuth();
+		$user.set(user);
 	} catch (err) {
-		console.error(err)
-		setUnAuth()
+		console.error(err);
+		setUnAuth();
 	}
-})
+});
 
 export { $auth, $isAuth, AuthStatus, setAuth, setUnAuth };

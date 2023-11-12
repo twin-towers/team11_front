@@ -13,4 +13,5 @@
 	--borderRadius: 0.5rem;
 	--boxShadow: 0 2px 5px rgba(#333, 0.2);
 	--invalid: oklch(61.6% 0.268 29.2339deg);
+	--valid: oklch(64.54% 0.258 142.495deg);
 }

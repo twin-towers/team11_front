@@ -9,7 +9,7 @@ export function optionalField<TWrapped extends BaseSchema, TDefault extends Inpu
 		_parse(input, info) {
 			console.log(input);
 			console.log(info);
-			return input === '' ? getOutput(wrapped._parse(input, info)) : wrapped._parse(input, info)
+			return input === '' ? getOutput(wrapped._parse(input, info)) : wrapped._parse(input, info);
 		},
 		async: false,
 		wrapped,

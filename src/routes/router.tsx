@@ -1,9 +1,10 @@
-import { Navigate, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
 import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
+import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
 import { ProjectPage } from './Project/ProjectPage';
 import { ProjectsPage } from './Projects/ProjectsList';
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
 	{
 		children: [
 			{
-				element: <Navigate to={AppRoute.ProjectsNew} />,
+				element: <MemoryGame />,
 				index: true,
 			},
 			{

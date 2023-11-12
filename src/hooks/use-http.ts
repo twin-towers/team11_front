@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useState } from 'react';
 
-import type { RegisterUserResponse, UserRegisterRequest } from '../types/user';
 
 type RequestConfig = {
-	body?: UserRegisterRequest | string;
+	body?: any | string;
 	data?: string;
 	headers?: { [header: string]: string };
 	method?: string;
@@ -14,7 +14,7 @@ const useHttp = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	const sendRequest = useCallback(async (requestConfig: RequestConfig, applyData: (data: RegisterUserResponse) => void) => {
+	const sendRequest = useCallback(async (requestConfig: RequestConfig, applyData: (data: any) => void) => {
 		setIsLoading(true);
 		setError(null);
 		console.log(requestConfig);

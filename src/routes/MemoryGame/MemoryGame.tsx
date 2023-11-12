@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react';
 
-import { $isFinished } from '../../stores/memory';
+import { $isFinished } from '../../stores/memory/memory';
 import { GameBoard } from './../../components/GameBoard/GameBoard';
 
 export function MemoryGame() {

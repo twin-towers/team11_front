@@ -3,22 +3,23 @@ import { Link } from 'react-router-dom';
 
 import { AppRoute } from '../../constants';
 import { $isAuth } from '../../stores/auth';
-import { logout } from '../../stores/user';
+import { $user, logout } from '../../stores/user';
 import { Button } from '../Button/Button';
 import styles from './Header.module.css';
 
 const Header = () => {
 	const isLoggedIn = useStore($isAuth);
+	const user = useStore($user);
 	return (
 		<nav className={styles.header}>
 			<Link className={styles.logo} to="/">
-				<img alt="logo" src="/assets/logo.svg" />
+				Memory game 🧠
 			</Link>
 			<div className={styles.links}>
 				{isLoggedIn ? (
 					<>
-						<Button className={styles.user} href="/projects" variant="text">
-							UserName
+						<Button className={styles.user} href={AppRoute.EditProfile} variant="text">
+							{user?.username}
 						</Button>
 
 						<Button className={styles.logout_in} onClick={logout} variant="text">

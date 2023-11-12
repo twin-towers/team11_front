@@ -1,5 +1,4 @@
 import '@fontsource-variable/nunito';
-import '@fontsource-variable/playpen-sans';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';

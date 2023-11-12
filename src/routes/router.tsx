@@ -2,25 +2,44 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout/Layout';
 import { AppRoute } from '../constants';
+import { PrivateRoute, PublicRoute } from './Acces/AccessRoute';
 import { EditPage } from './EditProfile/EditProfile';
 import { LoginPage } from './Login/LoginPage';
 import { MemoryGame } from './MemoryGame/MemoryGame';
 import { PageNotFound } from './NotFound/NotFound';
-import { PrivateRoute } from './Private/PrivateRoute';
-import { PublicRoute } from './Public/PublicRoute';
+import { ProjectPage } from './Project/ProjectPage';
+import { ProjectsPage } from './Projects/ProjectsList';
 import { SignUpPage } from './SignUpPage/SignUpPage';
 
 export const router = createBrowserRouter([
 	{
 		children: [
 			{
-				children: [
-					{ element: <EditPage />, path: AppRoute.EditProfile },
-					{
-						element: <MemoryGame />,
-						index: true,
-					},
-				],
+				element: <MemoryGame />,
+				index: true,
+			},
+			{
+				element: <ProjectPage />,
+				path: AppRoute.ProjectsNew,
+			},
+			{
+				element: <ProjectPage />,
+				path: AppRoute.Project,
+			},
+			{
+				element: <ProjectsPage />,
+				path: AppRoute.Projects,
+			},
+			{
+				element: <ProjectsPage />,
+				path: AppRoute.ProjectsNew,
+			},
+			{
+				element: <ProjectsPage />,
+			},
+
+			{
+				children: [{ element: <EditPage />, path: AppRoute.EditProfile }],
 				element: <PrivateRoute />,
 			},
 
@@ -34,7 +53,6 @@ export const router = createBrowserRouter([
 						element: <SignUpPage />,
 						path: AppRoute.SignUp,
 					},
-					{ element: <EditPage />, path: AppRoute.EditProfile },
 				],
 				element: <PublicRoute />,
 			},
